@@ -3,6 +3,8 @@ import {QuizService} from "../quiz/quiz.service";
 import {Problem} from "../problem/problem";
 import {ProblemComponent} from "../problem/problem.component";
 import {ProblemState} from "../problem/problemState";
+import Config from "../../config";
+import {Router} from "angular2/router";
 
 @Component({
     selector: 'results-component',
@@ -13,10 +15,39 @@ import {ProblemState} from "../problem/problemState";
 export class ResultsComponent {
     private quizService : QuizService ;
     allProblems : Array<Problem>;
+    answered : number;
+    total : number;
+    right : number;
+    wrong : number;
 
-    constructor(private _quizService : QuizService) {
+    constructor(private _quizService : QuizService,
+                private _router : Router) {
+        var self = this;
         this.quizService = _quizService;
 
         this.allProblems = this.quizService.allProblems;
+
+        this.total = Config.MAX_ANSWERS;
+        this.answered = 0;
+        this.right = 0;
+        this.wrong = 0;
+
+        this.allProblems.forEach(function(p) {
+            if (!p.isNotAnswered()) {
+                self.answered++;
+            }
+
+            if (p.isRight()) {
+               self.right++;
+            }
+            else if (p.isWrong()) {
+                self.wrong++;
+            }
+        });
+    }
+
+    playAgain() {
+        var route = ['Home'];
+        this._router.navigate(route);
     }
 }

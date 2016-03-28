@@ -4,7 +4,7 @@
   text-align: center;
   div.app-title {
     font-size: 48px;
-    color: darkgreen;
+    color: $darktext;
   }
   button {
     background-color: $darkbackground;
@@ -12,6 +12,6 @@
     height: 50px;
     border-radius: 20px;
     padding: 10px;
-    color: $darkforeground;
+    color: $whitetext;
   }
 }

@@ -6,6 +6,7 @@
   border-color: $darkbackground;
   border-radius: 10px;
   width: 100%;
+  margin: 5px;
   text-align: center;
   .problem-answer {
     padding-bottom: 20px;
@@ -30,7 +31,7 @@
     }
   }
   &.right {
-    background-color: lightgreen;
+    background-color: $rightbackground;
     .collect-answer {
       display: none;
     }
@@ -39,7 +40,7 @@
     }
   }
   &.wrong {
-    background-color: lightpink;
+    background-color: $wrongbackground;
     .collect-answer {
       display: none;
     }
@@ -51,13 +52,13 @@
     }
   }
   &.skipped {
-    background-color: lightgray;
+    background-color: $graybackground;
     .collect-answer {
       display: none;
     }
   }
   &.not-answered {
-    background-color: lightgray;
+    background-color: $graybackground;
     .collect-answer {
       display: none;
     }

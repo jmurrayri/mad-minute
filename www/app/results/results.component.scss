@@ -1,8 +1,33 @@
+@import '../colors.scss';
+
 .results-container {
+  button {
+    font-size: 28px;
+    background-color: $darkbackground;
+    color: $whitetext;
+    border-radius: 20px;
+  }
+  font-size: 32px;
   .collect-answer {
     display: none;
   }
   .results-problem {
     font-size: 24px;
+  }
+  span.answered, span.total {
+    font-weight: bolder;
+    font-size: 48px;
+  }
+
+  span.right {
+    font-weight: bolder;
+    font-size: 48px;
+    color: $righttext;
+  }
+
+  span.wrong {
+    font-weight: bolder;
+    font-size: 48px;
+    color: $wrongtext;
   }
 }

@@ -1,4 +1,7 @@
 <div class="results-container">
+    You answered <span class="answered">{{answered}}</span> out of <span class="total">{{total}}</span> possible problems.  You got <span class="right">{{right}}</span> right and <span class="wrong">{{wrong}}</span> wrong.
+    <button (click)="playAgain()">Play Again!</button>
+    <hr/>
     <div class="results-problem col-md-3 col-xs-2"
          *ngFor="#problem of allProblems">
         <problem-component [problem]="problem"></problem-component>

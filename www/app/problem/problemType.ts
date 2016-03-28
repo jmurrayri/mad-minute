@@ -76,7 +76,7 @@ export class ProblemType  {
         }
 
         var result = [];
-        for (i = 0; i < Config.MAX_ANSWERS - 1; i++) {
+        for (i = 0; i < Config.MAX_ANSWERS; i++) {
             var randomIndex = Math.floor(Math.random() * allProblems.length);
 
             result.push(allProblems[randomIndex]);

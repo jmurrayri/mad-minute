@@ -11,4 +11,12 @@ export class TimerComponent {
     constructor(private _timerService : TimerService) {
         this.timerService = _timerService;
     }
+
+    getTimeRemainingClass() {
+        if (this.timerService.numberOfSeconds <= 5) {
+            return 'warning';
+        }
+
+        return 'normal';
+    }
 }
