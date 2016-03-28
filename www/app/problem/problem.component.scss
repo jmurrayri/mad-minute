@@ -1,0 +1,65 @@
+@import '../colors';
+
+.problem-container {
+  border-style: solid;
+  border-width: 5;
+  border-color: $darkbackground;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  .problem-answer {
+    padding-bottom: 20px;
+  }
+  input {
+    width: 100px;
+    height: 40px;
+    font-size: 36px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &.presented {
+    .given-answer {
+      display: none;
+    }
+    .right-answer {
+      display: none;
+    }
+  }
+  &.right {
+    background-color: lightgreen;
+    .collect-answer {
+      display: none;
+    }
+    .right-answer {
+      display: none;
+    }
+  }
+  &.wrong {
+    background-color: lightpink;
+    .collect-answer {
+      display: none;
+    }
+    .given-answer {
+      color: red;
+    }
+    .right-answer {
+      color: black;
+    }
+  }
+  &.skipped {
+    background-color: lightgray;
+    .collect-answer {
+      display: none;
+    }
+  }
+  &.not-answered {
+    background-color: lightgray;
+    .collect-answer {
+      display: none;
+    }
+  }
+}

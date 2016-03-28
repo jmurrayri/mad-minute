@@ -1,0 +1,20 @@
+@import '../colors';
+
+.quiz-container {
+  text-align: center;
+  .quiz-timer {
+    float: right;
+  }
+  .quiz-problem {
+    margin: auto;
+    width: 300px;
+    height: 500px;
+    button {
+      font-size: 28px;
+      background-color: $darkbackground;
+      color: $darkforeground;
+      border-radius: 20px;
+    }
+    font-size: 48px;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../colors';
+
+.home-container {
+  text-align: center;
+  div.app-title {
+    font-size: 48px;
+    color: darkgreen;
+  }
+  button {
+    background-color: $darkbackground;
+    font-size: 18px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    color: $darkforeground;
+  }
+}

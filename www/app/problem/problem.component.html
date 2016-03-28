@@ -1,0 +1,21 @@
+<div class="problem-container {{getStatusClass(problem)}}">
+    <div>
+        {{problem.firstNumber}}
+    </div>
+    <div>
+        <span>{{problem.symbol}}</span>
+        <span>{{problem.secondNumber}}</span>
+    </div>
+    <hr/>
+    <div class="problem-answer">
+        <div class="given-answer">
+            <span>
+                <span class="given-answer">{{problem.givenAnswer}}</span>
+                <span class="right-answer">{{problem.correctAnswer}}</span>
+            </span>
+        </div>
+        <div class="collect-answer">
+            <input #input1 type="number" (keyup)="keyUp()" [(ngModel)]="problem.givenAnswer">
+        </div>
+    </div>
+</div>

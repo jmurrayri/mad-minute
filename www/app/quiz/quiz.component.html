@@ -1,0 +1,9 @@
+<div class="quiz-container">
+    <div class="quiz-timer">
+        <timer-component></timer-component>
+    </div>
+    <div class="quiz-problem">
+        <problem-component [problem]="problem" (next)="next()"></problem-component>
+        <button (click)="skip()">Skip</button>
+    </div>
+</div>
