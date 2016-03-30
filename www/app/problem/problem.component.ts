@@ -23,7 +23,7 @@ export class ProblemComponent implements OnInit {
     }
 
     keyUp() {
-        if (this.problem.givenAnswer &&
+        if ((this.problem.givenAnswer || this.problem.givenAnswer === 0) &&
             this.problem.givenAnswer.toString().length >=
             this.problem.correctAnswer.toString().length) {
             this.next.emit(null);
