@@ -40,8 +40,8 @@
     "typescript": "^1.7.5",
     "urlencoded-request-parser": "^1.0.1",
     "wallaby-webpack": "0.0.10",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "webpack": "^1.12.9"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.1",
