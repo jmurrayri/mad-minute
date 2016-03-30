@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "setup": "npm i -g webpack webpack-dev-server json-server parallelshell protractor",
+    "setup": "npm i -g webpack webpack-dev-server",
     "postsetup": "npm i & webdriver-manager update",
     "dev": "webpack -d -c --display-error-details",
     "watch": "npm run dev -- -w",
@@ -11,11 +11,10 @@
     "prod": "NODE_ENV=production webpack -p --config webpack.prod.config.js -c --display-error-details",
     "preserve": "npm run dev",
     "serve": "webpack-dev-server --port 5000 --content-base www/build/ --inline -d -c --display-error-details",
-    "serveApi": "json-server --watch apiMockData/db.json",
     "pree2e:start": "webdriver-manager update",
     "e2e:start": "parallelshell \"npm start\" \"webdriver-manager start\"",
     "e2e": "protractor protractor.conf.js",
-    "start": "parallelshell \"npm run serve\" \"npm run serveApi\""
+    "start": "npm run serve"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -27,7 +26,6 @@
     "html-loader": "^0.4.0",
     "html-webpack-plugin": "^1.7.0",
     "http": "0.0.0",
-    "json-server": "^0.8.4",
     "lodash": "^3.10.1",
     "node-sass-loader": "^0.1.7",
     "parallelshell": "^2.0.0",
