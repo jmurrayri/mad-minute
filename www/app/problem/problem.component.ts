@@ -22,7 +22,11 @@ export class ProblemComponent implements OnInit {
         //this.input1ElementRef.nativeElement.focus();
     }
 
-    keyUp() {
+    keyUp(key) {
+        if (key === 8) {
+            this.keyupCount--;
+            return;
+        }
         this.keyupCount++;
         if (this.keyupCount >=
             this.problem.correctAnswer.toString().length) {

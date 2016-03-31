@@ -15,7 +15,7 @@
             </span>
         </div>
         <div class="collect-answer">
-            <input #input1 type="number" (keyup)="keyUp()" [(ngModel)]="problem.givenAnswer">
+            <input #input1 type="number" (keyup)="keyUp($event.keyCode)" [(ngModel)]="problem.givenAnswer">
         </div>
     </div>
 </div>
