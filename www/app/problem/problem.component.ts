@@ -12,7 +12,7 @@ export class ProblemComponent implements OnInit {
     @Input() problem : Problem;
     @Output() next = new EventEmitter();
     @ViewChild('input1') input1ElementRef;
-
+    keyups : number = 0;
     constructor() {
     }
 
@@ -23,6 +23,7 @@ export class ProblemComponent implements OnInit {
     }
 
     keyUp() {
+        this.keyups++;
         if ((this.problem.givenAnswer || this.problem.givenAnswer === 0) &&
             this.problem.givenAnswer.toString().length >=
             this.problem.correctAnswer.toString().length) {
