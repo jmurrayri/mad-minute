@@ -12,7 +12,7 @@
     "prod": "NODE_ENV=production webpack -p --config webpack.prod.config.js -c --display-error-details",
     "preserve": "npm run dev",
     "serve-local": "webpack-dev-server --port 5000 --content-base www/build/ --inline -d -c --display-error-details",
-    "server": "express ./server/express.js",
+    "serve": "express ./server/express.js",
     "pree2e:start": "webdriver-manager update",
     "e2e:start": "parallelshell \"npm start\" \"webdriver-manager start\"",
     "e2e": "protractor protractor.conf.js",
