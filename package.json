@@ -5,16 +5,17 @@
   "scripts": {
     "setup": "npm i -g webpack webpack-dev-server",
     "postsetup": "npm i & webdriver-manager update",
+    "postinstall": "webpack -config ./webpack.config.js --progress --colors",
     "dev": "webpack -d -c --display-error-details",
     "watch": "npm run dev -- -w",
     "preprod": "npm i",
     "prod": "NODE_ENV=production webpack -p --config webpack.prod.config.js -c --display-error-details",
     "preserve": "npm run dev",
-    "serve": "webpack-dev-server --content-base www/build/ --inline -d -c --display-error-details",
+    "serve": "webpack-dev-server --port 5000 --content-base www/build/ --inline -d -c --display-error-details",
     "pree2e:start": "webdriver-manager update",
     "e2e:start": "parallelshell \"npm start\" \"webdriver-manager start\"",
     "e2e": "protractor protractor.conf.js",
-    "start": "npm run serve"
+    "start": "node ./server/express.js"
   },
   "devDependencies": {
   },
