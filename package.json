@@ -17,6 +17,17 @@
     "start": "npm run serve"
   },
   "devDependencies": {
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.1",
+    "es6-promise": "3.0.2",
+    "es6-shim": "0.33.3",
+    "lodash": "3.10.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10",
+    "webpack": "^1.12.9",
+    "html-webpack-plugin": "^1.7.0",
     "autoprefixer-loader": "^3.1.0",
     "body-parser": "^1.14.2",
     "clean-webpack-plugin": "^0.1.5",
@@ -40,16 +51,5 @@
     "urlencoded-request-parser": "^1.0.1",
     "wallaby-webpack": "0.0.10",
     "webpack-dev-server": "^1.14.0"
-  },
-  "dependencies": {
-    "angular2": "2.0.0-beta.1",
-    "es6-promise": "3.0.2",
-    "es6-shim": "0.33.3",
-    "lodash": "3.10.1",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
-    "zone.js": "0.5.10",
-    "webpack": "^1.12.9",
-    "html-webpack-plugin": "^1.7.0"
   }
 }
