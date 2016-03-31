@@ -1,5 +1,0 @@
-
-> angular2-project-template@1.0.0 start C:\Dev\madminute
-> parallelshell "npm run serve" "npm run serveApi"
-
-Terminate batch job (Y/N)? 
