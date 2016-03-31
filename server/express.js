@@ -205,7 +205,7 @@ server.on('clientError', function(exception, socket) {
 server.on('close', function() {
   logger('connection closed');
 });
-server.listen(config.port, function() {
+server.listen(process.env.PORT || config.port, function() {
   logger("Express server listening on port " + config.port);
 });
 
