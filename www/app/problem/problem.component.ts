@@ -27,6 +27,7 @@ export class ProblemComponent implements OnInit {
         if ((this.problem.givenAnswer || this.problem.givenAnswer === 0) &&
             this.problem.givenAnswer.toString().length >=
             this.problem.correctAnswer.toString().length) {
+            this.keyups = 0;
             this.next.emit(null);
         }
     }
