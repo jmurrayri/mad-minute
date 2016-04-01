@@ -6,6 +6,7 @@ export class ProblemType  {
     public static ADDITION: ProblemType = new ProblemType('+', false);
     public static MULTIPLICATION: ProblemType = new ProblemType('X', false);
     public static DIVISION: ProblemType = new ProblemType('÷', true);
+    public static SUBTRACTION: ProblemType = new ProblemType('-', false);
 
     public static findBySymbol(symbol : string) {
         if (symbol === ProblemType.ADDITION.symbol) {
@@ -16,6 +17,9 @@ export class ProblemType  {
         }
         else if (symbol === ProblemType.DIVISION.symbol) {
             return ProblemType.DIVISION;
+        }
+        else if (symbol === ProblemType.SUBTRACTION.symbol) {
+            return ProblemType.SUBTRACTION;
         }
         else {
             throw new Error('Unexpected symbol');
@@ -60,6 +64,20 @@ export class ProblemType  {
                     case "÷":
                         var product = firstNumber * secondNumber;
                         problem = new Problem(product, firstNumber, this.symbol, secondNumber);
+                        break;
+                    case "-":
+                        var larger;
+                        var smaller;
+
+                        if (firstNumber > secondNumber) {
+                            larger = firstNumber;
+                            smaller = secondNumber;
+                        }
+                        else {
+                            larger = secondNumber;
+                            smaller = firstNumber;
+                        }
+                        problem = new Problem(larger, smaller, this.symbol, larger - smaller);
                         break;
                     default:
                         throw new Error("Unknown symbol.");

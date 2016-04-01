@@ -13,6 +13,7 @@ export class HomeComponent {
     addType : ProblemType = ProblemType.ADDITION;
     multiplyType : ProblemType = ProblemType.MULTIPLICATION;
     divideType : ProblemType = ProblemType.DIVISION;
+    subtractType : ProblemType = ProblemType.SUBTRACTION;
 
     constructor(private _router : Router) {
         this.router = _router;
