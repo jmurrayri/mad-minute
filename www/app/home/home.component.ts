@@ -14,6 +14,7 @@ export class HomeComponent {
     multiplyType : ProblemType = ProblemType.MULTIPLICATION;
     divideType : ProblemType = ProblemType.DIVISION;
     subtractType : ProblemType = ProblemType.SUBTRACTION;
+    allType : ProblemType = ProblemType.ALL;
 
     constructor(private _router : Router) {
         this.router = _router;

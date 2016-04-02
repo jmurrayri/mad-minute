@@ -7,6 +7,7 @@ export class ProblemType  {
     public static MULTIPLICATION: ProblemType = new ProblemType('X', false);
     public static DIVISION: ProblemType = new ProblemType('÷', true);
     public static SUBTRACTION: ProblemType = new ProblemType('-', false);
+    public static ALL: ProblemType = new ProblemType('+X÷-', false);
 
     public static findBySymbol(symbol : string) {
         if (symbol === ProblemType.ADDITION.symbol) {
@@ -20,6 +21,9 @@ export class ProblemType  {
         }
         else if (symbol === ProblemType.SUBTRACTION.symbol) {
             return ProblemType.SUBTRACTION;
+        }
+        else if (symbol === ProblemType.ALL.symbol) {
+            return ProblemType.ALL;
         }
         else {
             throw new Error('Unexpected symbol');
@@ -35,7 +39,7 @@ export class ProblemType  {
     }
 
     public getAllProblems() {
-        var minimum = this.isDivision ? 1 : 0;
+        var minimum = 0;
         var maximum = config.MAX_NUMBER;
         var allProblems = [];
         var problem;
@@ -54,42 +58,48 @@ export class ProblemType  {
                     secondNumber = i;
                 }
 
-                switch (this.symbol) {
-                    case "+":
-                        problem = new Problem(firstNumber, secondNumber, this.symbol, i + j);
-                        break;
-                    case "X":
-                        problem = new Problem(firstNumber, secondNumber, this.symbol, i * j);
-                        break;
-                    case "÷":
-                        var product = firstNumber * secondNumber;
-                        problem = new Problem(product, firstNumber, this.symbol, secondNumber);
-                        break;
-                    case "-":
-                        var larger;
-                        var smaller;
+                if (this.symbol.indexOf('+') >= 0) {
+                    problem = new Problem(firstNumber, secondNumber, '+', i + j);
 
-                        if (firstNumber > secondNumber) {
-                            larger = firstNumber;
-                            smaller = secondNumber;
-                        }
-                        else {
-                            larger = secondNumber;
-                            smaller = firstNumber;
-                        }
-                        problem = new Problem(larger, smaller, this.symbol, larger - smaller);
-                        break;
-                    default:
-                        throw new Error("Unknown symbol.");
+                    allProblems.push(problem);
                 }
-                allProblems.push(problem);
+
+                if (this.symbol.indexOf('X') >= 0) {
+                    problem = new Problem(firstNumber, secondNumber, 'X', i * j);
+
+                    allProblems.push(problem);
+                }
+
+                if (i > 0 && this.symbol.indexOf('÷') >= 0) {
+                    var product = firstNumber * secondNumber;
+                    problem = new Problem(product, firstNumber, '÷', secondNumber);
+
+                    allProblems.push(problem);
+                }
+
+                if (this.symbol.indexOf('-') >= 0) {
+                    var larger;
+                    var smaller;
+
+                    if (firstNumber > secondNumber) {
+                        larger = firstNumber;
+                        smaller = secondNumber;
+                    }
+                    else {
+                        larger = secondNumber;
+                        smaller = firstNumber;
+                    }
+                    problem = new Problem(larger, smaller, '-', larger - smaller);
+
+                    allProblems.push(problem);
+                }
             }
         }
 
         // For division, support zeros as numerator.
-        if (this.isDivision) {
+        if (this.symbol.indexOf('÷') >= 0) {
             for (var i = 0; i <= maximum; i++) {
-                allProblems.push(new Problem(0, i, this.symbol, 0));
+                allProblems.push(new Problem(0, i, '÷', 0));
             }
         }
 
