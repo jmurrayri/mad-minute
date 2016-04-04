@@ -1,6 +1,10 @@
 <div class="results-container">
-    You answered <span class="answered">{{answered}}</span> out of <span class="total">{{total}}</span> possible problems.  You got <span class="right">{{right}}</span> right and <span class="wrong">{{wrong}}</span> wrong.
-    <button (click)="playAgain()">Play Again!</button>
+    <div class="results-text">
+        <div>You answered <span class="answered">{{answered}}</span> out of <span class="total">{{total}}</span> possible problems.</div>
+        <div>You got <span class="right">{{right}}</span> right and <span class="wrong">{{wrong}}</span> wrong.</div>
+        <div>Time Elapsed: {{timer.secondsElapsed}} seconds.</div>
+        <button (click)="playAgain()">Play Again!</button>
+    </div>
     <hr/>
     <div class="results-problem col-md-3 col-xs-2"
          *ngFor="#problem of allProblems">

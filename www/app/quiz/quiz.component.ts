@@ -52,7 +52,11 @@ export class QuizComponent implements OnInit {
 
         this.problem = this.quizService.nextProblem();
 
-        if (!this.problem || !this.timerService.running) {
+        if (!this.problem) {
+            this.timerService.stop();
+        }
+
+        if (!this.timerService.running) {
             var route = ['Results'];
             this.router.navigate(route);
         }

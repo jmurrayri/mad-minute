@@ -1,15 +1,33 @@
 @import '../colors';
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
 .home-container {
   text-align: center;
   div.app-title {
-    font-size: 48px;
-    color: $darktext;
+    font-size: 96px;
+    font-family: 'Indie Flower';
+    color: $titlecolor;
   }
   button {
-    background-color: $darkbackground;
+    &.add {
+      background-color: $addcolor;
+    }
+    &.multiply {
+      background-color: $multiplycolor;
+    }
+    &.divide {
+      background-color: $dividecolor;
+    }
+    &.subtract {
+      background-color: $subtractcolor;
+    }
+    &.madness {
+      background-color: $madnesscolor;
+      width: 400px;
+    }
     font-size: 18px;
     height: 50px;
+    width: 100px;
     border-radius: 20px;
     padding: 10px;
     color: $whitetext;

@@ -1,4 +1,7 @@
-<div class="problem-container {{getStatusClass(problem)}}">
+<div class="problem-container {{getStatusClass(problem)}} {{problem.problemType.className}}">
+    <span class="right-icon glyphicon glyphicon-ok"></span>
+    <span class="wrong-icon glyphicon glyphicon-remove"></span>
+    <span class="skip-icon glyphicon glyphicon-minus"></span>
     <div>
         {{problem.firstNumber}}
     </div>

@@ -1,9 +1,22 @@
 @import '../colors';
 
 .problem-container {
+  border-width: 10px;
+  border-style: solid;
+  &.add {
+    border-color: $addcolor;
+  }
+  &.divide {
+    border-color: $dividecolor;
+  }
+  &.subtract {
+    border-color: $subtractcolor;
+  }
+  &.multiply {
+    border-color: $multiplycolor;
+  }
   border-style: solid;
   border-width: 5;
-  border-color: $darkbackground;
   border-radius: 10px;
   width: 100%;
   margin: 5px;
@@ -22,7 +35,19 @@
     -webkit-appearance: none;
     margin: 0;
   }
+  .wrong-icon, .right-icon, .skip-icon {
+    font-size: 60px;
+  }
   &.presented {
+    .wrong-icon {
+      display: none;
+    }
+    .right-icon {
+      display: none;
+    }
+    .skip-icon {
+      display: none;
+    }
     .given-answer {
       display: none;
     }
@@ -31,7 +56,15 @@
     }
   }
   &.right {
-    background-color: $rightbackground;
+    .wrong-icon {
+      display: none;
+    }
+    .right-icon {
+      color: $rightbackground;
+    }
+    .skip-icon {
+      display: none;
+    }
     .collect-answer {
       display: none;
     }
@@ -40,7 +73,15 @@
     }
   }
   &.wrong {
-    background-color: $wrongbackground;
+    .wrong-icon {
+      color: $wrongbackground;
+    }
+    .right-icon {
+      display: none;
+    }
+    .skip-icon {
+      display: none;
+    }
     .collect-answer {
       display: none;
     }
@@ -52,12 +93,30 @@
     }
   }
   &.skipped {
+    .wrong-icon {
+      display: none;
+    }
+    .right-icon {
+      display: none;
+    }
+    .skip-icon {
+      color: black;
+    }
     background-color: $graybackground;
     .collect-answer {
       display: none;
     }
   }
   &.not-answered {
+    .wrong-icon {
+      display: none;
+    }
+    .right-icon {
+      display: none;
+    }
+    .skip-icon {
+      color: black;
+    }
     background-color: $graybackground;
     .collect-answer {
       display: none;

@@ -1,4 +1,5 @@
 ﻿import {ProblemState} from "./problemState";
+import {ProblemType} from "./problemType";
 export class Problem  {
     public firstNumber: number;
     public symbol: string;
@@ -6,8 +7,10 @@ export class Problem  {
     public givenAnswer: number;
     public correctAnswer: number;
     public problemState: ProblemState;
+    public problemType : ProblemType;
 
-    constructor(firstNumber: number, secondNumber: number, symbol: string, correctAnswer: number) {
+    constructor(problemType : ProblemType, firstNumber: number, secondNumber: number, symbol: string, correctAnswer: number) {
+        this.problemType = problemType;
         this.problemState = ProblemState.NOT_ANSWERED;
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;

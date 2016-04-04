@@ -5,6 +5,7 @@ import {ProblemComponent} from "../problem/problem.component";
 import {ProblemState} from "../problem/problemState";
 import Config from "../../config";
 import {Router} from "angular2/router";
+import {TimerService} from "../timer/timer.service";
 
 @Component({
     selector: 'results-component',
@@ -14,6 +15,7 @@ import {Router} from "angular2/router";
 })
 export class ResultsComponent {
     private quizService : QuizService ;
+    timer : TimerService;
     allProblems : Array<Problem>;
     answered : number;
     total : number;
@@ -21,9 +23,11 @@ export class ResultsComponent {
     wrong : number;
 
     constructor(private _quizService : QuizService,
+                private _timerService : TimerService,
                 private _router : Router) {
         var self = this;
         this.quizService = _quizService;
+        this.timer = _timerService;
 
         this.allProblems = this.quizService.allProblems;
 

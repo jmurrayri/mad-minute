@@ -3,11 +3,11 @@ import config from "../../config";
 import Config from "../../config";
 
 export class ProblemType  {
-    public static ADDITION: ProblemType = new ProblemType('+', false);
-    public static MULTIPLICATION: ProblemType = new ProblemType('X', false);
-    public static DIVISION: ProblemType = new ProblemType('÷', true);
-    public static SUBTRACTION: ProblemType = new ProblemType('-', false);
-    public static ALL: ProblemType = new ProblemType('+X÷-', false);
+    public static ADDITION: ProblemType = new ProblemType('+', 'add');
+    public static MULTIPLICATION: ProblemType = new ProblemType('X', 'multiply');
+    public static DIVISION: ProblemType = new ProblemType('÷', 'divide');
+    public static SUBTRACTION: ProblemType = new ProblemType('-', 'subtract');
+    public static ALL: ProblemType = new ProblemType('+X÷-', '');
 
     public static findBySymbol(symbol : string) {
         if (symbol === ProblemType.ADDITION.symbol) {
@@ -31,11 +31,11 @@ export class ProblemType  {
     }
 
     symbol : string;
-    private isDivision : boolean;
+    className : string;
 
-    constructor(symbol: string, isDivision: boolean) {
+    constructor(symbol: string, className: string) {
         this.symbol = symbol;
-        this.isDivision = isDivision;
+        this.className = className;
     }
 
     public getAllProblems() {
@@ -59,20 +59,20 @@ export class ProblemType  {
                 }
 
                 if (this.symbol.indexOf('+') >= 0) {
-                    problem = new Problem(firstNumber, secondNumber, '+', i + j);
+                    problem = new Problem(ProblemType.ADDITION, firstNumber, secondNumber, '+', i + j);
 
                     allProblems.push(problem);
                 }
 
                 if (this.symbol.indexOf('X') >= 0) {
-                    problem = new Problem(firstNumber, secondNumber, 'X', i * j);
+                    problem = new Problem(ProblemType.MULTIPLICATION, firstNumber, secondNumber, 'X', i * j);
 
                     allProblems.push(problem);
                 }
 
                 if (i > 0 && this.symbol.indexOf('÷') >= 0) {
                     var product = firstNumber * secondNumber;
-                    problem = new Problem(product, firstNumber, '÷', secondNumber);
+                    problem = new Problem(ProblemType.DIVISION, product, firstNumber, '÷', secondNumber);
 
                     allProblems.push(problem);
                 }
@@ -89,7 +89,7 @@ export class ProblemType  {
                         larger = secondNumber;
                         smaller = firstNumber;
                     }
-                    problem = new Problem(larger, smaller, '-', larger - smaller);
+                    problem = new Problem(ProblemType.SUBTRACTION, larger, smaller, '-', larger - smaller);
 
                     allProblems.push(problem);
                 }
@@ -99,7 +99,7 @@ export class ProblemType  {
         // For division, support zeros as numerator.
         if (this.symbol.indexOf('÷') >= 0) {
             for (var i = 0; i <= maximum; i++) {
-                allProblems.push(new Problem(0, i, '÷', 0));
+                allProblems.push(new Problem(ProblemType.DIVISION, 0, i, '÷', 0));
             }
         }
 
